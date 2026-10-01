@@ -1,0 +1,32 @@
+<section>
+    
+    <div>
+        <h1>Gestión de Tickets</h1>
+        <p>Solicitudes registradas en el sistema</p>
+    </div>
+
+    @if (cargando) {
+        <p>Cargando tickets...</p>
+    }
+    @else {
+        <div>
+            @for (ticket of tickets; track ticket.id) {
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{ ticket.asunto }} | {{ ticket.id }}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{ ticket.descripcion }}</p>
+                        <p>{{ ticket.estado }}</p>
+                        <p>{{ ticket.prioridad }}</p>
+                        <p>{{ ticket.fechaCreacion }}</p>
+                    </mat-card-content>
+                </mat-card>
+            }
+            @empty {
+                <p>No hay registros asociados</p>
+            }
+        </div>
+    }
+
+</section>

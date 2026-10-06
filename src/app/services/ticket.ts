@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
 import { Ticket } from '../models/ticket';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class TicketService {
 
-    private apiUrl = 'http://localhost:3000/tickets';
+  private http = inject(HttpClient);
 
-    constructor(private http:HttpClient) {}
+  private apiUrl = 'http://localhost:3000/tickets';
 
-    obtenerTickets():Observable<Ticket[]> {
-        return this.http.get<Ticket[]>(this.apiUrl);
-    }
+  obtenerTickets(): Observable<Ticket[]> {
+    return this.http.get<Ticket[]>(this.apiUrl);
+  }
 }

@@ -1,0 +1,347 @@
+:host {
+  display: block;
+}
+
+/* ==============================
+   CONTENEDOR GENERAL
+   ============================== */
+
+.tickets {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   ENCABEZADO
+   ============================== */
+
+.encabezado {
+  margin-bottom: 26px;
+}
+
+.encabezado h1 {
+  margin: 0 0 7px;
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: #0f172a;
+}
+
+.encabezado p {
+  margin: 0;
+  font-size: 15px;
+  color: #64748b;
+}
+
+/* ==============================
+   CONTENEDOR DE LA TABLA
+   ============================== */
+
+.tabla-contenedor {
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+/* ==============================
+   TABLA
+   ============================== */
+
+table {
+  width: 100%;
+  background: #ffffff;
+}
+
+/* Encabezado de tabla */
+
+.mat-mdc-header-row {
+  height: 58px;
+  background: #f8fafc;
+}
+
+.mat-mdc-header-cell {
+  padding: 0 20px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Filas */
+
+.mat-mdc-row {
+  height: 64px;
+  transition: background-color 0.15s ease;
+}
+
+.mat-mdc-row:hover {
+  background: #f8fafc;
+}
+
+/* Celdas */
+
+.mat-mdc-cell {
+  padding: 0 20px;
+  border-bottom-color: #eef2f7;
+  color: #334155;
+  font-size: 14px;
+}
+
+/* ==============================
+   ANCHOS DE COLUMNAS
+   ============================== */
+
+.mat-column-id {
+  width: 90px;
+  color: #64748b;
+}
+
+.mat-column-asunto {
+  min-width: 260px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.mat-column-estado {
+  width: 180px;
+}
+
+.mat-column-prioridad {
+  width: 160px;
+}
+
+.mat-column-fechaCreacion {
+  width: 160px;
+}
+
+/* ==============================
+   BADGES
+   ============================== */
+
+.estado,
+.prioridad {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 78px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+}
+
+/* Estados */
+
+.estado.abierto {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.estado.proceso {
+  background: #fef3c7;
+  color: #a16207;
+}
+
+.estado.cerrado {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* Prioridades */
+
+.prioridad.alta {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.prioridad.media {
+  background: #fef3c7;
+  color: #a16207;
+}
+
+.prioridad.baja {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+/* ==============================
+   PAGINADOR
+   ============================== */
+
+mat-paginator {
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+/* Contenedor */
+
+:host ::ng-deep .mat-mdc-paginator-container {
+  min-height: 68px;
+  padding: 10px 18px;
+  gap: 8px;
+}
+
+/* Textos */
+
+:host ::ng-deep .mat-mdc-paginator-page-size-label,
+:host ::ng-deep .mat-mdc-paginator-range-label {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+:host ::ng-deep .mat-mdc-paginator-range-label {
+  margin: 0 14px;
+}
+
+/* Selector de cantidad */
+
+:host ::ng-deep .mat-mdc-paginator-page-size-select {
+  width: 72px;
+  margin: 0 6px;
+}
+
+/* Campo del selector */
+
+:host ::ng-deep .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper {
+  height: 38px;
+  background: #ffffff;
+  border: 1px solid #dbe2ea;
+  border-radius: 8px;
+}
+
+/* Ajuste vertical */
+
+:host ::ng-deep .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix {
+  min-height: 36px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+/* Quitar línea inferior */
+
+:host ::ng-deep .mat-mdc-paginator-page-size-select .mdc-line-ripple {
+  display: none;
+}
+
+/* ==============================
+   BOTONES DEL PAGINADOR
+   ============================== */
+
+:host ::ng-deep .mat-mdc-paginator-navigation-first,
+:host ::ng-deep .mat-mdc-paginator-navigation-previous,
+:host ::ng-deep .mat-mdc-paginator-navigation-next,
+:host ::ng-deep .mat-mdc-paginator-navigation-last {
+  width: 38px;
+  height: 38px;
+  margin: 0 2px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #475569;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+/* Hover */
+
+:host ::ng-deep .mat-mdc-paginator-navigation-first:hover:not(:disabled),
+:host ::ng-deep .mat-mdc-paginator-navigation-previous:hover:not(:disabled),
+:host ::ng-deep .mat-mdc-paginator-navigation-next:hover:not(:disabled),
+:host ::ng-deep .mat-mdc-paginator-navigation-last:hover:not(:disabled) {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #2563eb;
+}
+
+/* Botones deshabilitados */
+
+:host ::ng-deep .mat-mdc-paginator-navigation-first:disabled,
+:host ::ng-deep .mat-mdc-paginator-navigation-previous:disabled,
+:host ::ng-deep .mat-mdc-paginator-navigation-next:disabled,
+:host ::ng-deep .mat-mdc-paginator-navigation-last:disabled {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+  color: #cbd5e1;
+}
+
+/* ==============================
+   MENSAJES
+   ============================== */
+
+.mensaje {
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  text-align: center;
+  color: #64748b;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.mensaje.error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #b91c1c;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 900px) {
+
+  .tabla-contenedor {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 850px;
+  }
+
+  .encabezado h1 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 700px) {
+
+  :host ::ng-deep .mat-mdc-paginator-container {
+    justify-content: center;
+  }
+
+  :host ::ng-deep .mat-mdc-paginator-page-size {
+    margin-right: 0;
+  }
+
+  :host ::ng-deep .mat-mdc-paginator-range-label {
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .encabezado {
+    margin-bottom: 20px;
+  }
+
+  .encabezado h1 {
+    font-size: 24px;
+  }
+
+  .encabezado p {
+    font-size: 14px;
+  }
+}

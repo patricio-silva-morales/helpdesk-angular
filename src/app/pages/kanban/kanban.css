@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: #0f172a;
+}
+
+p {
+  margin: 0;
+  font-size: 15px;
+  color: #64748b;
+}

@@ -1,5 +1,5 @@
 export interface Ticket {
-    id: number;
+    id: string;
     asunto: string;
     descripcion: string;
     estado: 'Abierto' | 'En proceso' | 'Cerrado';

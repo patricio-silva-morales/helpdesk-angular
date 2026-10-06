@@ -1,38 +1,93 @@
-<mat-toolbar color="primary" class="toolbar">
-  <span>Sistema Help Desk</span>
+<mat-toolbar class="toolbar">
+  <div class="marca">
+    <mat-icon>support_agent</mat-icon>
+
+    <div>
+      <span class="marca-nombre">Sistema Help Desk</span>
+      <span class="marca-subtitulo">Gestión de soporte</span>
+    </div>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="layout">
-  <mat-sidenav mode="side" opened class="sidebar">
-    <div clas="menu-titulo">Menú principal</div>
-    
+
+  <mat-sidenav
+    mode="side"
+    opened
+    class="sidebar">
+
+    <div class="menu-titulo">
+      Menú principal
+    </div>
+
     <mat-nav-list>
-      <a mat-list-item routerLink="/dashboard" routerLinkActive="activo">
-        <mat-icon matListItemIcon>dashboard</mat-icon>
-        <span matListItemTitle>Dashboard</span>
+
+      <a
+        mat-list-item
+        routerLink="/dashboard"
+        routerLinkActive="activo">
+
+        <mat-icon matListItemIcon>
+          dashboard
+        </mat-icon>
+
+        <span matListItemTitle>
+          Dashboard
+        </span>
       </a>
 
-      <a mat-list-item routerLink="/tickets" routerLinkActive="activo">
-        <mat-icon matListItemIcon>confirmation_number</mat-icon>
-        <span matListItemTitle>Tickets</span>
+      <a
+        mat-list-item
+        routerLink="/tickets"
+        routerLinkActive="activo">
+
+        <mat-icon matListItemIcon>
+          confirmation_number
+        </mat-icon>
+
+        <span matListItemTitle>
+          Tickets
+        </span>
       </a>
 
-      <a mat-list-item routerLink="/kanban" routerLinkActive="activo">
-        <mat-icon matListItemIcon>view_kanban</mat-icon>
-        <span matListItemTitle>Kanban</span>
+      <a
+        mat-list-item
+        routerLink="/kanban"
+        routerLinkActive="activo">
+
+        <mat-icon matListItemIcon>
+          view_kanban
+        </mat-icon>
+
+        <span matListItemTitle>
+          Kanban
+        </span>
       </a>
 
-      <a mat-list-item routerLink="/reportes" routerLinkActive="activo">
-        <mat-icon matListItemIcon>bar_chart</mat-icon>
-        <span matListItemTitle>Reportes</span>
+      <a
+        mat-list-item
+        routerLink="/reportes"
+        routerLinkActive="activo">
+
+        <mat-icon matListItemIcon>
+          bar_chart
+        </mat-icon>
+
+        <span matListItemTitle>
+          Reportes
+        </span>
       </a>
 
-    </mat-nav-list>    
+    </mat-nav-list>
+
   </mat-sidenav>
-  
-  <mat-sidenav-content>
+
+  <mat-sidenav-content class="contenido">
+
     <main class="contenedor">
       <router-outlet></router-outlet>
     </main>
+
   </mat-sidenav-content>
+
 </mat-sidenav-container>

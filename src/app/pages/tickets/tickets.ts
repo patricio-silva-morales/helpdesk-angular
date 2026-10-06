@@ -1,36 +1,62 @@
-import { Component, OnInit, inject } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { Component, OnInit, ViewChild, inject, signal } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { Ticket } from '../../models/ticket';
 import { TicketService } from '../../services/ticket';
 
 @Component({
-  imports: [
-    MatCardModule
-  ],
   selector: 'app-tickets',
-  styleUrl: './tickets.css',
+  imports: [
+    MatTableModule,
+    MatPaginatorModule,
+    DatePipe
+  ],
   templateUrl: './tickets.html',
+  styleUrl: './tickets.css'
 })
 export class Tickets implements OnInit {
+
   private ticketService = inject(TicketService);
 
-  tickets: Ticket[] = [];
+  columnas: string[] = [
+    'id',
+    'asunto',
+    'estado',
+    'prioridad',
+    'fechaCreacion'
+  ];
 
-  cargando = true;
+  dataSource = new MatTableDataSource<Ticket>();
+
+  cargando = signal(true);
+  error = signal(false);
+
+  @ViewChild(MatPaginator)
+  set paginator(paginator: MatPaginator) {
+    if (paginator) {
+      this.dataSource.paginator = paginator;
+    }
+  }
 
   ngOnInit(): void {
-    this.cargarTickets();  
+    this.cargarTickets();
   }
 
   cargarTickets(): void {
+    this.cargando.set(true);
+    this.error.set(false);
+
     this.ticketService.obtenerTickets().subscribe({
-      next: (datos) => {
-        this.tickets = datos;
-        this.cargando = false;
+      next: (tickets) => {
+        this.dataSource.data = tickets;
+        this.cargando.set(false);
       },
+
       error: (error) => {
-        console.error('Error al obtener los tickets');
-        this.cargando = false;
+        console.error('Error al cargar tickets:', error);
+        this.error.set(true);
+        this.cargando.set(false);
       }
     });
   }

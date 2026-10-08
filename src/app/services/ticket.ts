@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { Ticket } from '../models/ticket';
 
 @Injectable({
@@ -15,5 +14,9 @@ export class TicketService {
 
   obtenerTickets(): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(this.apiUrl);
+  }
+
+  crearTicket(ticket: Omit<Ticket, 'id'>): Observable<Ticket> {
+    return this.http.post<Ticket>(this.apiUrl, ticket);
   }
 }

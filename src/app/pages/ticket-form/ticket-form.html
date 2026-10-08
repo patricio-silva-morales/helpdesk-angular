@@ -1,0 +1,134 @@
+<section class="ticket-form-page">
+
+  <div class="encabezado">
+    <h1>Nuevo ticket</h1>
+    <p>Registra una nueva solicitud de soporte.</p>
+  </div>
+
+  <form
+    class="formulario"
+    [formGroup]="ticketForm"
+    (ngSubmit)="guardar()">
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>Asunto</mat-label>
+
+      <input
+        matInput
+        type="text"
+        formControlName="asunto">
+
+      @if (ticketForm.controls.asunto.hasError('required')) {
+        <mat-error>
+          El asunto es obligatorio.
+        </mat-error>
+      }
+
+      @if (ticketForm.controls.asunto.hasError('minlength')) {
+        <mat-error>
+          El asunto debe tener al menos 5 caracteres.
+        </mat-error>
+      }
+
+      @if (ticketForm.controls.asunto.hasError('maxlength')) {
+        <mat-error>
+          El asunto no puede superar los 100 caracteres.
+        </mat-error>
+      }
+
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+
+      <mat-label>Descripción</mat-label>
+
+      <textarea
+        matInput
+        rows="5"
+        formControlName="descripcion">
+      </textarea>
+
+      @if (ticketForm.controls.descripcion.hasError('required')) {
+        <mat-error>
+          La descripción es obligatoria.
+        </mat-error>
+      }
+
+      @if (ticketForm.controls.descripcion.hasError('minlength')) {
+        <mat-error>
+          La descripción debe tener al menos 10 caracteres.
+        </mat-error>
+      }
+
+      @if (ticketForm.controls.descripcion.hasError('maxlength')) {
+        <mat-error>
+          La descripción no puede superar los 500 caracteres.
+        </mat-error>
+      }
+
+    </mat-form-field>
+
+    <div class="fila">
+
+      <mat-form-field appearance="outline">
+
+        <mat-label>Estado</mat-label>
+
+        <mat-select formControlName="estado">
+          <mat-option value="Abierto">Abierto</mat-option>
+          <mat-option value="En proceso">En proceso</mat-option>
+          <mat-option value="Cerrado">Cerrado</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+
+        <mat-label>Prioridad</mat-label>
+
+        <mat-select formControlName="prioridad">
+          <mat-option value="Baja">Baja</mat-option>
+          <mat-option value="Media">Media</mat-option>
+          <mat-option value="Alta">Alta</mat-option>
+        </mat-select>
+
+      </mat-form-field>
+
+    </div>
+
+    @if (errorGuardado()) {
+      <div class="error-guardado">
+        No fue posible crear el ticket. Intenta nuevamente.
+      </div>
+    }
+
+    <div class="acciones">
+
+      <button
+        mat-stroked-button
+        type="button"
+        (click)="cancelar()">
+        Cancelar
+      </button>
+
+      <button
+        mat-flat-button
+        type="submit"
+        [disabled]="guardando()">
+
+        <mat-icon>save</mat-icon>
+
+        @if (guardando()) {
+          Guardando...
+        } @else {
+          Crear ticket
+        }
+
+      </button>
+
+    </div>
+
+  </form>
+
+</section>

@@ -1,120 +1,129 @@
 {
-    "tickets": [
-        {
-            "id": "1",
-            "asunto": "Problema de acceso",
-            "descripcion": "Al intentar acceder, apareción un error en pantalla",
-            "estado": "Abierto",
-            "prioridad": "Alta",
-            "fechaCreacion": "2026-10-01"
-        },
-        {
-            "id": "2",
-            "asunto": "Error al generar resumen",
-            "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
-            "estado": "En proceso",
-            "prioridad": "Media",
-            "fechaCreacion": "2026-09-30"
-        },
-        {
-            "id": "3",
-            "asunto": "Impresora no disponible",
-            "descripcion": "La impresora no aparece disponible en el sistema",
-            "estado": "Cerrado",
-            "prioridad": "Baja",
-            "fechaCreacion": "2026-09-20"
-        },
-        {
-            "id": "4",
-            "asunto": "Problema de acceso",
-            "descripcion": "Al intentar acceder, apareción un error en pantalla",
-            "estado": "Abierto",
-            "prioridad": "Alta",
-            "fechaCreacion": "2026-10-01"
-        },
-        {
-            "id": "5",
-            "asunto": "Error al generar resumen",
-            "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
-            "estado": "En proceso",
-            "prioridad": "Media",
-            "fechaCreacion": "2026-09-30"
-        },
-        {
-            "id": "6",
-            "asunto": "Impresora no disponible",
-            "descripcion": "La impresora no aparece disponible en el sistema",
-            "estado": "Cerrado",
-            "prioridad": "Baja",
-            "fechaCreacion": "2026-09-20"
-        },
-        {
-            "id": "7",
-            "asunto": "Problema de acceso",
-            "descripcion": "Al intentar acceder, apareción un error en pantalla",
-            "estado": "Abierto",
-            "prioridad": "Alta",
-            "fechaCreacion": "2026-10-01"
-        },
-        {
-            "id": "8",
-            "asunto": "Error al generar resumen",
-            "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
-            "estado": "En proceso",
-            "prioridad": "Media",
-            "fechaCreacion": "2026-09-30"
-        },
-        {
-            "id": "9",
-            "asunto": "Impresora no disponible",
-            "descripcion": "La impresora no aparece disponible en el sistema",
-            "estado": "Cerrado",
-            "prioridad": "Baja",
-            "fechaCreacion": "2026-09-20"
-        },
-        {
-            "id": "10",
-            "asunto": "Problema de acceso",
-            "descripcion": "Al intentar acceder, apareción un error en pantalla",
-            "estado": "Abierto",
-            "prioridad": "Alta",
-            "fechaCreacion": "2026-10-01"
-        },
-        {
-            "id": "11",
-            "asunto": "Error al generar resumen",
-            "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
-            "estado": "En proceso",
-            "prioridad": "Media",
-            "fechaCreacion": "2026-09-30"
-        },
-        {
-            "id": "12",
-            "asunto": "Impresora no disponible",
-            "descripcion": "La impresora no aparece disponible en el sistema",
-            "estado": "Cerrado",
-            "prioridad": "Baja",
-            "fechaCreacion": "2026-09-20"
-        }
-    ],
-    "usuarios": [
-        {
-            "id": "1",
-            "nombre": "Ana María Olmedo",
-            "email": "aolmedo@gmail.com",
-            "rol": "Soporte"
-        },
-        {
-            "id": "2",
-            "nombre": "Marcela Farías",
-            "email": "mfarias@gmail.com",
-            "rol": "Administrador"
-        },
-        {
-            "id": "3",
-            "nombre": "Martín Cofré",
-            "email": "mcofre@gmail.com",
-            "rol": "Usuario"
-        }
-    ]
+  "tickets": [
+    {
+      "id": "1",
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareción un error en pantalla",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "2",
+      "asunto": "Error al generar resumen",
+      "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-30"
+    },
+    {
+      "id": "3",
+      "asunto": "Impresora no disponible",
+      "descripcion": "La impresora no aparece disponible en el sistema",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-20"
+    },
+    {
+      "id": "4",
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareción un error en pantalla",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "5",
+      "asunto": "Error al generar resumen",
+      "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-30"
+    },
+    {
+      "id": "6",
+      "asunto": "Impresora no disponible",
+      "descripcion": "La impresora no aparece disponible en el sistema",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-20"
+    },
+    {
+      "id": "7",
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareción un error en pantalla",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "8",
+      "asunto": "Error al generar resumen",
+      "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-30"
+    },
+    {
+      "id": "9",
+      "asunto": "Impresora no disponible",
+      "descripcion": "La impresora no aparece disponible en el sistema",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-20"
+    },
+    {
+      "id": "10",
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareción un error en pantalla",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "11",
+      "asunto": "Error al generar resumen",
+      "descripcion": "Durante el proceso de generación del resumen de ventas, el sistema se demora y luego da un error en pantalla",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-30"
+    },
+    {
+      "id": "12",
+      "asunto": "Impresora no disponible",
+      "descripcion": "La impresora no aparece disponible en el sistema",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-20"
+    },
+    {
+      "asunto": "Prueba",
+      "descripcion": "Esta es una prueba de registro de ticket",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-08",
+      "id": "-IKAI7tdXAc"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Ana María Olmedo",
+      "email": "aolmedo@gmail.com",
+      "rol": "Soporte"
+    },
+    {
+      "id": "2",
+      "nombre": "Marcela Farías",
+      "email": "mfarias@gmail.com",
+      "rol": "Administrador"
+    },
+    {
+      "id": "3",
+      "nombre": "Martín Cofré",
+      "email": "mcofre@gmail.com",
+      "rol": "Usuario"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

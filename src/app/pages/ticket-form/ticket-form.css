@@ -1,0 +1,298 @@
+:host {
+  display: block;
+}
+
+/* ==============================
+   CONTENEDOR GENERAL
+   ============================== */
+
+.ticket-form-page {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   ENCABEZADO
+   ============================== */
+
+.encabezado {
+  margin-bottom: 24px;
+}
+
+.encabezado h1 {
+  margin: 0 0 6px;
+  color: #0f172a;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+}
+
+.encabezado p {
+  margin: 0;
+  color: #64748b;
+  font-size: 15px;
+}
+
+/* ==============================
+   FORMULARIO
+   ============================== */
+
+.formulario {
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.03),
+    0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+/* ==============================
+   CAMPOS MATERIAL
+   ============================== */
+
+mat-form-field {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-mdc-form-field {
+  margin-bottom: 8px;
+}
+
+/* Contenedor del campo */
+
+:host ::ng-deep .mat-mdc-text-field-wrapper {
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+/* ==============================
+   PADDING INTERNO
+   ============================== */
+
+/*
+  Agrega espacio horizontal al contenido
+  de input, textarea y select.
+*/
+
+:host ::ng-deep .mat-mdc-form-field-infix {
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+}
+
+/* ==============================
+   INPUT
+   ============================== */
+
+:host ::ng-deep input.mat-mdc-input-element {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+/* ==============================
+   TEXTAREA
+   ============================== */
+
+:host ::ng-deep textarea.mat-mdc-input-element {
+  min-height: 105px;
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+/* ==============================
+   SELECT
+   ============================== */
+
+:host ::ng-deep .mat-mdc-select-value {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+:host ::ng-deep .mat-mdc-select-arrow-wrapper {
+  padding-left: 8px;
+}
+
+/* ==============================
+   LABELS
+   ============================== */
+
+:host ::ng-deep .mat-mdc-floating-label {
+  color: #64748b;
+}
+
+:host ::ng-deep .mat-mdc-form-field.mat-focused .mdc-floating-label {
+  color: #2563eb;
+}
+
+/* ==============================
+   BORDES
+   ============================== */
+
+/* Borde normal */
+
+:host ::ng-deep
+.mat-mdc-form-field:not(.mat-focused)
+.mdc-notched-outline__leading,
+:host ::ng-deep
+.mat-mdc-form-field:not(.mat-focused)
+.mdc-notched-outline__notch,
+:host ::ng-deep
+.mat-mdc-form-field:not(.mat-focused)
+.mdc-notched-outline__trailing {
+  border-color: #cbd5e1;
+}
+
+/* Borde al obtener foco */
+
+:host ::ng-deep
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__leading,
+:host ::ng-deep
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__notch,
+:host ::ng-deep
+.mat-mdc-form-field.mat-focused
+.mdc-notched-outline__trailing {
+  border-color: #2563eb;
+  border-width: 2px;
+}
+
+/* ==============================
+   ESTADO Y PRIORIDAD
+   ============================== */
+
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* ==============================
+   ERRORES DE VALIDACIÓN
+   ============================== */
+
+:host ::ng-deep .mat-mdc-form-field-error {
+  font-size: 12px;
+}
+
+/* Mensaje de error al guardar */
+
+.error-guardado {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  padding: 13px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  color: #b91c1c;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.error-guardado mat-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-right: 9px;
+  font-size: 20px;
+}
+
+/* ==============================
+   ACCIONES
+   ============================== */
+
+.acciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 22px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* Botones */
+
+.acciones button {
+  min-width: 130px;
+  height: 42px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Botón Cancelar */
+
+.acciones button[mat-stroked-button] {
+  border-color: #cbd5e1;
+  color: #475569;
+  background: #ffffff;
+}
+
+.acciones button[mat-stroked-button]:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* Botón Crear ticket */
+
+.acciones button[mat-flat-button] {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.acciones button[mat-flat-button]:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+/* Botón deshabilitado */
+
+.acciones button[mat-flat-button]:disabled {
+  background: #cbd5e1;
+  color: #ffffff;
+}
+
+/* Iconos de botones */
+
+.acciones mat-icon {
+  width: 19px;
+  height: 19px;
+  margin-right: 5px;
+  font-size: 19px;
+}
+
+/* ==============================
+   RESPONSIVE
+   ============================== */
+
+@media (max-width: 700px) {
+
+  .ticket-form-page {
+    max-width: 100%;
+  }
+
+  .formulario {
+    padding: 20px;
+  }
+
+  .fila {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .acciones {
+    flex-direction: column-reverse;
+  }
+
+  .acciones button {
+    width: 100%;
+  }
+
+  .encabezado h1 {
+    font-size: 26px;
+  }
+}

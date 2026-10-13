@@ -1,12 +1,12 @@
 {
   "tickets": [
     {
-      "id": "1",
       "asunto": "Problema de acceso",
-      "descripcion": "Al intentar acceder, apareción un error en pantalla",
+      "descripcion": "Al intentar acceder, apareció un error en pantalla",
       "estado": "Abierto",
       "prioridad": "Alta",
-      "fechaCreacion": "2026-10-01"
+      "fechaCreacion": "2026-10-01",
+      "id": "1"
     },
     {
       "id": "2",
@@ -97,12 +97,28 @@
       "fechaCreacion": "2026-09-20"
     },
     {
-      "asunto": "Prueba",
-      "descripcion": "Esta es una prueba de registro de ticket",
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareció un error en pantalla",
       "estado": "Abierto",
-      "prioridad": "Media",
-      "fechaCreacion": "2026-10-08",
-      "id": "-IKAI7tdXAc"
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-13",
+      "id": "bb_NRsToyTA"
+    },
+    {
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareció un error en pantalla",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-13",
+      "id": "H5AvB30uvjs"
+    },
+    {
+      "asunto": "Problema de acceso",
+      "descripcion": "Al intentar acceder, apareció un error en pantalla",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-13",
+      "id": "sNSCR2FEO3k"
     }
   ],
   "usuarios": [

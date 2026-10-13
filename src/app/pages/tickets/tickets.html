@@ -5,6 +5,11 @@
     <p>Listado de solicitudes registradas en el Sistema Help Desk.</p>
   </div>
 
+  <a mat-flat-button routerLink="/tickets/nuevo">
+    <mat-icon>add</mat-icon>
+    Nuevo Ticket
+  </a>
+
   @if (cargando()) {
 
     <div class="mensaje">
@@ -91,6 +96,24 @@
 
           <td mat-cell *matCellDef="let ticket">
             {{ ticket.fechaCreacion | date:'dd-MM-yyyy' }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>
+            Acciones
+          </th>
+
+          <td mat-cell *matCellDef="let ticket">
+            <div class="acciones-tabla">
+              <a mat-icon-button [routerLink]="['/tickets/editar/',ticket.id]" aria-label="Editar ticket">
+                <mat-icon>edit</mat-icon>
+              </a>
+
+              <button mat-icon-button type="button" class="eliminar" [disabled]="eliminandoId() === ticket.id" (click)="eliminar(ticket)" aria-label="Eliminar ticket">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
           </td>
         </ng-container>
 

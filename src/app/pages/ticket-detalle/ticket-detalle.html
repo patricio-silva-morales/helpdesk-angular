@@ -1,0 +1,87 @@
+<section class="detalle-page">
+
+    @if (cargando()) {
+        <div class="mensaje">
+            Cargando ticket...
+        </div>
+    }
+    @else if (error()) {
+        <div class="mensaje error">
+            <mat-icon>error_outline</mat-icon>
+            <h2>Ticket no encontrado</h2>
+        </div>
+        <a mat-stroked-button routerLink="/tickets">
+            <mat-icon>arrow_back</mat-icon>
+            Volver a Listado de tickets
+        </a>
+    }
+    @else if (ticket(); as ticketActual) {
+        <div class="navegacion">
+            <a mat-stroked-button routerLink="/tickets">
+                <mat-icon>arrow_back</mat-icon>
+                Volver a Listado de tickets
+            </a>
+        </div>
+
+        <article class="ticket-card">
+            <header class="ticket-header">
+                <div>
+                    <span class="ticket-id">Ticket #{{ ticketActual.id }}</span>
+                    <h1>
+                        {{ ticketActual.asunto }}
+                    </h1>
+                </div>
+
+                <button mat-flat-button [routerLink]="['/ticket/editar',ticketActual.id]" [disabled]="ticketActual.estado === 'Cerrado'">
+                    <mat-icon>edit</mat-icon>
+                    Editar
+                </button>
+            </header>
+            <div class="resumen">
+                <div class="dato">
+                    <span class="etiqueta">
+                        Estado
+                    </span>
+
+                    <span class="estado" 
+                    [class.abierto]="ticketActual.estado === 'Abierto'"
+                    [class.proceso]="ticketActual.estado === 'En proceso'"
+                    [class.cerrado]="ticketActual.estado === 'Cerrado'">
+                        {{ ticketActual.estado }}
+                    </span>
+                </div>
+
+                <div class="dato">
+                    <span class="etiqueta">
+                        Prioridad
+                    </span>
+
+                    <span class="prioridad" 
+                    [class.alta]="ticketActual.prioridad === 'Alta'"
+                    [class.media]="ticketActual.prioridad === 'Media'"|
+                    [class.baja]="ticketActual.prioridad === 'Baja'">
+                        {{ ticketActual.prioridad }}
+                    </span>
+                </div>
+
+                <div class="dato">
+                    <span class="etiqueta">
+                        Fecha de creación
+                    </span>
+
+                    <span class="valor">
+                        {{ ticketActual.fechaCreacion | date:'dd-MM-yyyy'}}
+                    </span>
+                </div>
+            </div>
+
+            <div class="descripcion">
+                <h2>Descripción</h2>
+                <p>
+                    {{ ticketActual.descripcion }}
+                </p>
+            </div>
+        </article>
+    }
+
+</section>

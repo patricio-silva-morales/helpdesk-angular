@@ -106,13 +106,17 @@
 
           <td mat-cell *matCellDef="let ticket">
             <div class="acciones-tabla">
-              <a mat-icon-button [routerLink]="['/tickets/editar/',ticket.id]" aria-label="Editar ticket">
+              <button mat-icon-button [routerLink]="['/tickets/editar/',ticket.id]" [disabled]="ticket.estado === 'Cerrado'" aria-label="Editar ticket">
                 <mat-icon>edit</mat-icon>
-              </a>
+              </button>
 
               <button mat-icon-button type="button" class="eliminar" [disabled]="eliminandoId() === ticket.id" (click)="eliminar(ticket)" aria-label="Eliminar ticket">
                 <mat-icon>delete</mat-icon>
               </button>
+
+              <a mat-icon-button [routerLink]="['/tickets', ticket.id]" aria-label="Ver detalle">
+                <mat-icon>visibility</mat-icon>
+              </a>
             </div>
           </td>
         </ng-container>

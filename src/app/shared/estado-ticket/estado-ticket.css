@@ -1,0 +1,30 @@
+:host {
+    display: inline-block;
+}
+
+.estado {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 82px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.estado.abierto {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.estado.proceso {
+    background-color: #fef3c7;
+    color: #a16207;
+}
+
+.estado.cerrado {
+    background-color: #dcfce7;
+    color: #15803d;
+}

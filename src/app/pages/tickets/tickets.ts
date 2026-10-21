@@ -7,6 +7,9 @@ import { TicketService } from '../../services/ticket';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatIcon } from '@angular/material/icon';
+import { EstadoTicket } from '../../shared/estado-ticket/estado-ticket';
+import { PrioridadTicket } from '../../shared/prioridad-ticket/prioridad-ticket';
+import { AccionesTicket } from '../../shared/acciones-ticket/acciones-ticket';
 
 @Component({
   selector: 'app-tickets',
@@ -16,7 +19,10 @@ import { MatIcon } from '@angular/material/icon';
     DatePipe,
     RouterLink,
     MatIconModule,
-    MatIcon
+    MatIcon,
+    EstadoTicket,
+    PrioridadTicket,
+    AccionesTicket
 ],
   templateUrl: './tickets.html',
   styleUrl: './tickets.css'

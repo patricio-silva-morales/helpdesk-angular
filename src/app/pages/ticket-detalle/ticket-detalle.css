@@ -94,49 +94,6 @@
   font-weight: 600;
 }
 
-.estado,
-.prioridad {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 82px;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  line-height: 1;
-  font-weight: 600;
-}
-
-.estado.abierto {
-  background: #dbeafe;
-  color: #1d4ed8;
-}
-
-.estado.proceso {
-  background: #fef3c7;
-  color: #a16207;
-}
-
-.estado.cerrado {
-  background: #dcfce7;
-  color: #15803d;
-}
-
-.prioridad.alta {
-  background: #fee2e2;
-  color: #b91c1c;
-}
-
-.prioridad.media {
-  background: #fef3c7;
-  color: #a16207;
-}
-
-.prioridad.baja {
-  background: #dcfce7;
-  color: #15803d;
-}
-
 .descripcion {
   padding: 30px;
 }

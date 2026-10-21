@@ -1,0 +1,29 @@
+:host {
+    display: inline-block;
+}
+
+.acciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.acciones a,
+.acciones button {
+    color: #64748b;
+}
+
+.acciones a:hover {
+    background-color: #3ff6ff;
+    color: #2563eb;
+}
+
+.acciones .eliminar:hover:not(:disabled) {
+    background-color: #fef2f2;
+    color: #dc2626;
+}
+
+.acciones button:disabled {
+    opacity: 0.5;
+}

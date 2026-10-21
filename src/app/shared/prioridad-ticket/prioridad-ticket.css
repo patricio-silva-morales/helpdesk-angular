@@ -1,0 +1,30 @@
+:host {
+    display: inline-block;
+}
+
+.prioridad {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 78px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 600;
+}
+
+.prioridad.alta {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.prioridad.media {
+    background-color: #fef3c7;
+    color: #a16207;
+}
+
+.prioridad.baja {
+    background-color: #dcfce7;
+    color: #15803d;
+}

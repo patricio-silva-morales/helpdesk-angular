@@ -1,0 +1,15 @@
+<div class="acciones">
+    
+    <a mat-icon-button [routerLink]="['/tickets/editar', ticket().id]" aria-label="Editar ticket">
+        <mat-icon>edit</mat-icon>
+    </a>
+
+    <button mat-icon-button type="button" class="eliminar" [disabled]="eliminando()" (click)="solicitarEliminacion()" aria-label="Eliminar ticket">
+        <mat-icon>delete</mat-icon>
+    </button>
+    
+    <a mat-icon-button [routerLink]="['/tickets', ticket().id]" aria-label="Ver detalle">
+        <mat-icon>visibility</mat-icon>
+    </a>
+
+</div>

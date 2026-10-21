@@ -1,0 +1,7 @@
+<span class="estado"
+    [class.abierto]="estado() === 'Abierto'"
+    [class.proceso]="estado() === 'En proceso'"
+    [class.cerrado]="estado() === 'Cerrado'"
+>
+    {{ estado() }}
+</span>

@@ -111,14 +111,6 @@
       "prioridad": "Alta",
       "fechaCreacion": "2026-10-13",
       "id": "H5AvB30uvjs"
-    },
-    {
-      "asunto": "Problema de acceso",
-      "descripcion": "Al intentar acceder, apareció un error en pantalla",
-      "estado": "Abierto",
-      "prioridad": "Alta",
-      "fechaCreacion": "2026-10-13",
-      "id": "sNSCR2FEO3k"
     }
   ],
   "usuarios": [

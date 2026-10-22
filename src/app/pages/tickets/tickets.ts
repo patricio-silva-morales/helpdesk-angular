@@ -6,10 +6,12 @@ import { Ticket } from '../../models/ticket';
 import { TicketService } from '../../services/ticket';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { EstadoTicket } from '../../shared/estado-ticket/estado-ticket';
 import { PrioridadTicket } from '../../shared/prioridad-ticket/prioridad-ticket';
 import { AccionesTicket } from '../../shared/acciones-ticket/acciones-ticket';
+import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
 
 @Component({
   selector: 'app-tickets',
@@ -30,6 +32,7 @@ import { AccionesTicket } from '../../shared/acciones-ticket/acciones-ticket';
 export class Tickets implements OnInit {
 
   private ticketService = inject(TicketService);
+  private dialog = inject(MatDialog);
 
   columnas: string[] = [
     'id',
@@ -76,12 +79,29 @@ export class Tickets implements OnInit {
   }
 
   eliminar(ticket: Ticket): void {
-    const confirmado = confirm(`¿Está seguro de eliminar el ticket ${ticket.asunto}?`);
+    const dialogRef = this.dialog.open(ConfirmDialog, {
+      width: '430px',
+      maxWidth: '95vw',
+      disableClose: true,
+      data: {
+        titulo: 'Eliminar ticket',
+        mensaje: '¿Está seguro que desea eliminar el ticket?',
+        textoConfirmar: 'Eliminar',
+        textoCancelar: 'Cancelar' 
+      }
+    });
 
-    if (!confirmado) {
-      return;
-    }
+    dialogRef.afterClosed().subscribe(
+      resultado => {
+        if (resultado !== true) {
+          return;
+        }
 
+        this.eliminarTicket(ticket);
+    });        
+  }
+
+  private eliminarTicket(ticket: Ticket): void {
     this.eliminandoId.set(ticket.id);
 
     this.ticketService.eliminarTicket(ticket.id).subscribe({
@@ -93,6 +113,6 @@ export class Tickets implements OnInit {
         console.error('Error al intentar eliminar el ticket:', error);
         this.eliminandoId.set(null);
       }
-    });    
+    });
   }
 }

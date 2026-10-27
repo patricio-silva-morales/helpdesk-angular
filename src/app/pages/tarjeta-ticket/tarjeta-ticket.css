@@ -1,0 +1,69 @@
+:host {
+    display: block;
+}
+
+.ticket-card {
+    padding: 14px;
+    border-left: 4px solid #94a3b8;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgb(15 23 42 / 10%);
+}
+
+.ticket-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.ticket-id {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.prioridad {
+    padding: 4px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.prioridad-baja {
+    color: #166534;
+    background-color: #dcfce7;
+}
+
+.prioridad-media {
+    color: #9a3412;
+    background-color: #ffedd5;
+}
+
+.prioridad-alta {
+    color: #991b1b;
+    background-color: #fee2e2;
+}
+
+.ticket-asunto {
+    margin: 0 0 8px;
+    color: #0f172a;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+.descripcion {
+    margin: 0 0 14px;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.ticket-fecha {
+    padding-top: 10px;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+    font-size: 12px;
+}

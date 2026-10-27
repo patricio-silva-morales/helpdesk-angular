@@ -1,5 +1,25 @@
-<section>
-    <h1>Tablero Kanban</h1>
+<section class="kanban-page">
+    <header class="enabezado">
+        <h1>Tablero Kanban</h1>
+        <p>Tickets organizados por estado</p>
+    </header>
 
-    <p>Sección para el tablero Kanban</p>
+    @if (cargando()) {
+        <div class="mensaje">Cargando datos</div>
+    } @else if (error()) {
+        <div class="mensaje error">No fue posible cargar los tickets</div>
+    } @else if (tickets().length === 0) {
+        <div class="mensaje">No hay tickets registrados</div>
+    } @else {
+        <div class="tablero">
+            @for (columna of estados; track columna.nombre) {
+                <app-kanban-columna 
+                    [titulo]="columna.titulo"
+                    [estado]="columna.nombre"
+                    [tickets]="ticketsPorEstado(columna.nombre)"
+                />
+            }
+        </div>
+    }
+
 </section>

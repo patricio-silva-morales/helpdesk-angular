@@ -1,0 +1,24 @@
+<mat-card class="ticket-card">
+    <div class="ticket-superior">
+        <span class="ticket-id">
+            Ticket #{{ ticket().id }}
+        </span>
+        <span class="prioridad"
+            [class.prioridad-baja]="ticket().prioridad === 'Baja'"
+            [class.prioridad-media]="ticket().prioridad === 'Media'"
+            [class.prioridad-alta]="ticket().prioridad === 'Alta'">
+
+            {{ ticket().prioridad }}
+        </span>
+    </div>
+
+    <h3 class="ticket-asunto">{{ ticket().asunto }}</h3>
+
+    <p class="descripcion">
+        {{ticket().descripcion }}
+    </p>
+
+    <div class="ticket-fecha">
+        Creado: {{ ticket().fechaCreacion | date:'dd-MM-yyyy'}}
+    </div>
+</mat-card>

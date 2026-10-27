@@ -1,0 +1,53 @@
+:host {
+    display: block;
+    min-width: 250px;
+}
+
+.columna {
+    min-height: 380px;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background-color: #f8fafc;
+}
+
+.columna-encabezado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.columna-encabezado h2 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 17px;
+    font-weight: 600; 
+}
+
+.cantidad {
+    display: inline-flex;
+    min-width: 26px;
+    height: 26px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #e2e8f0;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.columna-contenido {
+    display: grid;
+    gap: 12px;
+    padding-top: 14px;
+}
+
+.mensaje-vacio {
+    margin: 8px 0;
+    color: #64748b;
+    font-size: 14px;
+}

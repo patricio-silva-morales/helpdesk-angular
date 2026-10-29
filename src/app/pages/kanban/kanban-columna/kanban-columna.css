@@ -1,53 +1,77 @@
 :host {
-    display: block;
-    min-width: 250px;
+  display: block;
+  min-width: 250px;
 }
 
 .columna {
-    min-height: 380px;
-    padding: 14px;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    background-color: #f8fafc;
+  min-height: 380px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background-color: #f8fafc;
 }
 
 .columna-encabezado {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .columna-encabezado h2 {
-    margin: 0;
-    color: #0f172a;
-    font-size: 17px;
-    font-weight: 600; 
+  margin: 0;
+  color: #0f172a;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 .cantidad {
-    display: inline-flex;
-    min-width: 26px;
-    height: 26px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: #e2e8f0;
-    color: #334155;
-    font-size: 12px;
-    font-weight: 600;
+  display: inline-flex;
+  min-width: 26px;
+  height: 26px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #e2e8f0;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .columna-contenido {
-    display: grid;
-    gap: 12px;
-    padding-top: 14px;
+  display: grid;
+  gap: 12px;
+  padding-top: 14px;
 }
 
 .mensaje-vacio {
-    margin: 8px 0;
-    color: #64748b;
-    font-size: 14px;
+  margin: 8px 0;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.tarjeta-arrastrable {
+  display: block;
+  cursor: grab;
+}
+
+.tarjeta-arrastrable:active {
+  cursor: grabbing;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgb(15 23 42 / 20%);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0.35;
+}
+
+.cdk-drop-list-dragging
+.tarjeta-arrastrable:not(.cdk-drag-placeholder) {
+  transition: transform 180ms ease;
 }

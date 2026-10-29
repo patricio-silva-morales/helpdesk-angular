@@ -1,6 +1,37 @@
 {
   "tickets": [
-    
+    {
+      "asunto": "Sin acceso a carpeta compartida OJITO",
+      "descripcion": "No tengo permisos para abrir la carpeta 'Finanzas' en el servidor.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-28",
+      "id": "5"
+    },
+    {
+      "asunto": "Pantalla parpadea",
+      "descripcion": "El monitor externo parpadea cada cierto tiempo.",
+      "estado": "En proceso",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-30",
+      "id": "6"
+    },
+    {
+      "asunto": "Pantalla parpadea",
+      "descripcion": "El monitor externo parpadea cada cierto tiempo.",
+      "estado": "Abierto",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-05",
+      "id": "8"
+    },
+    {
+      "asunto": "Pantalla parpadea",
+      "descripcion": "El monitor externo parpadea cada cierto tiempo.",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-05",
+      "id": "9"
+    }
   ],
   "usuarios": [
     {

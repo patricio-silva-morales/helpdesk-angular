@@ -1,24 +1,40 @@
 <mat-card class="ticket-card">
-    <div class="ticket-superior">
-        <span class="ticket-id">
-            Ticket #{{ ticket().id }}
-        </span>
-        <span class="prioridad"
-            [class.prioridad-baja]="ticket().prioridad === 'Baja'"
-            [class.prioridad-media]="ticket().prioridad === 'Media'"
-            [class.prioridad-alta]="ticket().prioridad === 'Alta'">
+  <div class="ticket-superior">
+    <span class="ticket-id">
+      Ticket #{{ ticket().id }}
+    </span>
 
-            {{ ticket().prioridad }}
-        </span>
-    </div>
+    <span
+      class="prioridad"
+      [class.prioridad-baja]="ticket().prioridad === 'Baja'"
+      [class.prioridad-media]="ticket().prioridad === 'Media'"
+      [class.prioridad-alta]="ticket().prioridad === 'Alta'">
+      {{ ticket().prioridad }}
+    </span>
+  </div>
 
-    <h3 class="ticket-asunto">{{ ticket().asunto }}</h3>
+  <h3 class="ticket-asunto">{{ ticket().asunto }}</h3>
 
-    <p class="descripcion">
-        {{ticket().descripcion }}
-    </p>
+  <p class="descripcion">
+    {{ ticket().descripcion }}
+  </p>
 
-    <div class="ticket-fecha">
-        Creado: {{ ticket().fechaCreacion | date:'dd-MM-yyyy'}}
-    </div>
+  <div class="ticket-fecha">
+    Creado: {{ ticket().fechaCreacion | date:'dd-MM-yyyy' }}
+  </div>
+
+  <label class="estado-label" [for]="'estado-' + ticket().id">
+    Cambiar estado
+  </label>
+
+  <select
+    class="estado-select"
+    [id]="'estado-' + ticket().id"
+    [ngModel]="ticket().estado"
+    (pointerdown)="$event.stopPropagation()"
+    (ngModelChange)="seleccionEstado($event)">
+    @for (estado of estados; track estado) {
+      <option [ngValue]="estado">{{ estado }}</option>
+    }
+  </select>
 </mat-card>

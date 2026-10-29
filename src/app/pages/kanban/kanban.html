@@ -6,17 +6,24 @@
 
     @if (cargando()) {
         <div class="mensaje">Cargando datos</div>
-    } @else if (error()) {
+    } @else if (errorCarga()) {
         <div class="mensaje error">No fue posible cargar los tickets</div>
     } @else if (tickets().length === 0) {
         <div class="mensaje">No hay tickets registrados</div>
     } @else {
-        <div class="tablero">
+        <div class="tablero" cdkDropListGroup>
             @for (columna of estados; track columna.nombre) {
                 <app-kanban-columna 
                     [titulo]="columna.titulo"
                     [estado]="columna.nombre"
                     [tickets]="ticketsPorEstado(columna.nombre)"
+
+                    (cambiarEstado)="actualizarEstado(
+                        $event.ticket,
+                        $event.nuevoEstado
+                    )"
+
+                    (moverTicket)="actualizarEstado($event.ticket, $event.estadoDestino)"
                 />
             }
         </div>

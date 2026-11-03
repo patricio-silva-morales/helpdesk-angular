@@ -4,6 +4,42 @@
         <p>Tickets organizados por estado</p>
     </header>
 
+    <section class="filtros-kanban" aria-label="Panel de filtros">
+        <mat-form-field appearance="outline" class="filtro-busqueda">
+            <mat-label>Buscar tickets</mat-label>
+            <input matInput type="search" placelholder="ID, estado o prioridad" [ngModel]="textoBusqueda()" (ngModelChange)="actualizarBusqueda($event)">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Estado</mat-label>
+            <mat-select [ngModel]="estadoSeleccionado()" (ngModelChange)="actualizarEstadoSeleccionado($event)">
+                <mat-option value="">Todos</mat-option>
+                <mat-option value="Abierto">Abierto</mat-option>
+                <mat-option value="En proceso">En proceso</mat-option>
+                <mat-option value="Cerrado">Cerrado</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Prioridad</mat-label>
+            <mat-select [ngModel]="prioridadSeleccionada" (ngModelChange)="actualizarPrioridadSeleccionada($event)">
+                <mat-option value="">Todos</mat-option>
+                <mat-option value="Baja">Baja</mat-option>
+                <mat-option value="Media">Media</mat-option>
+                <mat-option value="Alta">Alta</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-stroked-button type="button" (click)="limpiarFiltros()">Limpiar filtros</button>
+    </section>
+
+    @if (!cargando() && !errorCarga()) {
+        <p class="contador-resultados" aria-live="polite">
+        Mostrando
+        {{ ticketsFiltrados().length }} de {{ tickets().length }}
+        </p>
+    }
+
     @if (cargando()) {
         <div class="mensaje">Cargando datos</div>
     } @else if (errorCarga()) {

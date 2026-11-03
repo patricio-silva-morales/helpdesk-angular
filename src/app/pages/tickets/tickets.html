@@ -10,6 +10,53 @@
     Nuevo Ticket
   </a>
 
+  <section class="panel-filtros" aria-label="Panel de filtros">
+    <mat-form-field appearance="outline" class="filtro-busqueda">
+      <mat-label>Buscar tickets</mat-label>
+      <input matInput type="search" placeholder="ID, asunto o descripción" [ngModel]="filtros.texto" (ngModelChange)="aplicarBusqueda($event)">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Estado</mat-label>
+      <mat-select [ngModel]="filtros.estado" (ngModelChange)="aplicarFiltroEstado($event)">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="Abierto">Abierto</mat-option>
+        <mat-option value="En proceso">En proceso</mat-option>
+        <mat-option value="Cerrado">Cerrado</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Prioridad</mat-label>
+      <mat-select [ngModel]="filtros.prioridad" (ngModelChange)="aplicarFiltroPrioridad($event)">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="Baja">Baja</mat-option>
+        <mat-option value="Media">Media</mat-option>
+        <mat-option value="Alta">Alta</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Desde</mat-label>
+      <input matInput type="date" [ngModel]="filtros.fechaDesde" (ngModelChange)="aplicarFechaDesde($event)">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Hasta</mat-label>
+      <input matInput type="date" [ngModel]="filtros.fechaHasta" (ngModelChange)="aplicarFechaHasta($event)">
+    </mat-form-field>
+
+    <button mat-stroked-button type="button" (click)="limpiarFiltros()">Limpiar filtros</button>
+  </section>
+
+  @if (!cargando() && !error()) {
+    <p class="contador-resultados" aria-live="polite">
+      Mostrando
+      {{ dataSource.filteredData.length }} de {{ dataSource.data.length}}
+    </p>
+  }
+
   @if (cargando()) {
 
     <div class="mensaje">

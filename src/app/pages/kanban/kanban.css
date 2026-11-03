@@ -41,3 +41,78 @@
 .mensaje.error {
   color: #b91c1c;
 }
+
+.filtros-kanban {
+  display: grid;
+  grid-template-columns:
+    minmax(260px, 2fr)
+    repeat(2, minmax(170px, 1fr))
+    auto;
+  align-items: start;
+  gap: 14px;
+  margin: 24px 0 10px;
+  padding: 20px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+  box-shadow: 0 4px 14px rgb(15 23 42 / 5%);
+}
+
+/* Mantiene los controles Material al ancho de sus celdas. */
+.filtros-kanban mat-form-field {
+  width: 100%;
+  margin-bottom: -1.25em;
+}
+
+/* Evita que el texto de búsqueda fuerce el ancho del panel. */
+.filtros-kanban .filtro-busqueda {
+  min-width: 0;
+}
+
+/* Alinea el botón de limpieza con los campos. */
+.filtros-kanban button {
+  min-height: 56px;
+  margin-bottom: 1.25em;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Mejora la separación del contador respecto de filtros y tablero. */
+.contador-resultados {
+  margin: 8px 2px 16px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* Organiza los filtros en dos filas en tabletas. */
+@media (max-width: 850px) {
+  .filtros-kanban {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .filtros-kanban .filtro-busqueda {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Apila los controles en teléfonos. */
+@media (max-width: 520px) {
+  .filtros-kanban {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .filtros-kanban .filtro-busqueda {
+    grid-column: auto;
+  }
+
+  .filtros-kanban mat-form-field {
+    margin-bottom: 0;
+  }
+
+  .filtros-kanban button {
+    width: 100%;
+    margin: 4px 0 0;
+  }
+}

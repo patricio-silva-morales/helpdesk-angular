@@ -36,6 +36,73 @@
 }
 
 /* ==============================
+   PANEL DE FILTROS
+   ============================== */
+
+.panel-filtros {
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 2fr)
+    repeat(4, minmax(145px, 1fr))
+    auto;
+  align-items: start;
+  gap: 14px;
+  margin: 24px 0 10px;
+  padding: 22px;
+  border: 1px solid #dbe3ee;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px rgb(15 23 42 / 7%);
+}
+
+.panel-filtros mat-form-field {
+  width: 100%;
+  margin: 0;
+}
+
+.panel-filtros .filtro-busqueda {
+  min-width: 0;
+}
+
+:host ::ng-deep .panel-filtros .mat-mdc-text-field-wrapper {
+  background-color: #fff;
+  border-radius: 9px;
+}
+
+:host ::ng-deep .panel-filtros .mdc-notched-outline__leading,
+:host ::ng-deep .panel-filtros .mdc-notched-outline__notch,
+:host ::ng-deep .panel-filtros .mdc-notched-outline__trailing {
+  border-color: #cbd5e1;
+}
+
+:host ::ng-deep .panel-filtros mat-form-field:hover
+.mdc-notched-outline__leading,
+:host ::ng-deep .panel-filtros mat-form-field:hover
+.mdc-notched-outline__notch,
+:host ::ng-deep .panel-filtros mat-form-field:hover
+.mdc-notched-outline__trailing {
+  border-color: #94a3b8;
+}
+
+/* Mismas reglas del botón de filtros de Kanban. */
+.panel-filtros button {
+  min-height: 56px;
+  margin-bottom: 1.25em;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* ==============================
+   CONTADOR DE RESULTADOS
+   ============================== */
+
+.contador-resultados {
+  margin: 8px 2px 16px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+/* ==============================
    CONTENEDOR DE LA TABLA
    ============================== */
 
@@ -58,8 +125,6 @@ table {
   background: #ffffff;
 }
 
-/* Encabezado de tabla */
-
 .mat-mdc-header-row {
   height: 58px;
   background: #f8fafc;
@@ -75,8 +140,6 @@ table {
   letter-spacing: 0.5px;
 }
 
-/* Filas */
-
 .mat-mdc-row {
   height: 64px;
   transition: background-color 0.15s ease;
@@ -85,8 +148,6 @@ table {
 .mat-mdc-row:hover {
   background: #f8fafc;
 }
-
-/* Celdas */
 
 .mat-mdc-cell {
   padding: 0 20px;
@@ -132,15 +193,11 @@ mat-paginator {
   color: #475569;
 }
 
-/* Contenedor */
-
 :host ::ng-deep .mat-mdc-paginator-container {
   min-height: 68px;
   padding: 10px 18px;
   gap: 8px;
 }
-
-/* Textos */
 
 :host ::ng-deep .mat-mdc-paginator-page-size-label,
 :host ::ng-deep .mat-mdc-paginator-range-label {
@@ -153,14 +210,10 @@ mat-paginator {
   margin: 0 14px;
 }
 
-/* Selector de cantidad */
-
 :host ::ng-deep .mat-mdc-paginator-page-size-select {
   width: 72px;
   margin: 0 6px;
 }
-
-/* Campo del selector */
 
 :host ::ng-deep .mat-mdc-paginator-page-size-select .mat-mdc-text-field-wrapper {
   height: 38px;
@@ -169,15 +222,11 @@ mat-paginator {
   border-radius: 8px;
 }
 
-/* Ajuste vertical */
-
 :host ::ng-deep .mat-mdc-paginator-page-size-select .mat-mdc-form-field-infix {
   min-height: 36px;
   padding-top: 7px;
   padding-bottom: 7px;
 }
-
-/* Quitar línea inferior */
 
 :host ::ng-deep .mat-mdc-paginator-page-size-select .mdc-line-ripple {
   display: none;
@@ -204,8 +253,6 @@ mat-paginator {
     color 0.18s ease;
 }
 
-/* Hover */
-
 :host ::ng-deep .mat-mdc-paginator-navigation-first:hover:not(:disabled),
 :host ::ng-deep .mat-mdc-paginator-navigation-previous:hover:not(:disabled),
 :host ::ng-deep .mat-mdc-paginator-navigation-next:hover:not(:disabled),
@@ -214,8 +261,6 @@ mat-paginator {
   border-color: #bfdbfe;
   color: #2563eb;
 }
-
-/* Botones deshabilitados */
 
 :host ::ng-deep .mat-mdc-paginator-navigation-first:disabled,
 :host ::ng-deep .mat-mdc-paginator-navigation-previous:disabled,
@@ -247,11 +292,46 @@ mat-paginator {
 }
 
 /* ==============================
-   RESPONSIVE
+   RESPONSIVE: FILTROS
+   ============================== */
+
+@media (max-width: 1100px) {
+  .panel-filtros {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .panel-filtros .filtro-busqueda {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .panel-filtros {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .panel-filtros .filtro-busqueda {
+    grid-column: auto;
+  }
+
+  .panel-filtros mat-form-field {
+    margin-bottom: 0;
+  }
+
+  /* Mismas reglas responsive del botón de Kanban. */
+  .panel-filtros button {
+    width: 100%;
+    margin: 4px 0 0;
+  }
+}
+
+/* ==============================
+   RESPONSIVE: TABLA Y PAGINADOR
    ============================== */
 
 @media (max-width: 900px) {
-
   .tabla-contenedor {
     overflow-x: auto;
   }
@@ -266,7 +346,6 @@ mat-paginator {
 }
 
 @media (max-width: 700px) {
-
   :host ::ng-deep .mat-mdc-paginator-container {
     justify-content: center;
   }
@@ -281,7 +360,6 @@ mat-paginator {
 }
 
 @media (max-width: 600px) {
-
   .encabezado {
     margin-bottom: 20px;
   }

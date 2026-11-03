@@ -183,3 +183,21 @@ mat-nav-list a.activo::before {
     display: none;
   }
 }
+
+/* SESIÓN 11: fondo opaco para las opciones de mat-select. */
+.mat-mdc-select-panel {
+  background-color: #fff !important;
+  opacity: 1 !important;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 18%);
+}
+
+/* SESIÓN 11: mantiene cada opción sobre un fondo sólido. */
+.mat-mdc-option {
+  background-color: #fff;
+}
+
+/* SESIÓN 11: conserva el fondo opaco al pasar el cursor o navegar con teclado. */
+.mat-mdc-option:hover,
+.mat-mdc-option.mdc-list-item--focused {
+  background-color: #f1f5f9;
+}

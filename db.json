@@ -1,36 +1,484 @@
 {
   "tickets": [
     {
-      "asunto": "Sin acceso a carpeta compartida OJITO",
-      "descripcion": "No tengo permisos para abrir la carpeta 'Finanzas' en el servidor.",
+      "id": "1",
+      "asunto": "Sin acceso a carpeta de Finanzas",
+      "descripcion": "Área solicitante: Finanzas. Sin acceso a carpeta de Finanzas. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
       "estado": "Abierto",
       "prioridad": "Alta",
-      "fechaCreacion": "2026-09-28",
-      "id": "5"
+      "fechaCreacion": "2026-09-01"
     },
     {
-      "asunto": "Pantalla parpadea",
-      "descripcion": "El monitor externo parpadea cada cierto tiempo.",
-      "estado": "Abierto",
-      "prioridad": "Baja",
-      "fechaCreacion": "2026-09-30",
-      "id": "6"
-    },
-    {
-      "asunto": "Pantalla parpadea",
-      "descripcion": "El monitor externo parpadea cada cierto tiempo.",
+      "id": "2",
+      "asunto": "Monitor externo parpadea",
+      "descripcion": "Área solicitante: Ventas. Monitor externo parpadea. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
       "estado": "Cerrado",
       "prioridad": "Baja",
-      "fechaCreacion": "2026-10-05",
-      "id": "8"
+      "fechaCreacion": "2026-09-01"
     },
     {
-      "asunto": "Pantalla parpadea",
-      "descripcion": "El monitor externo parpadea cada cierto tiempo.",
+      "id": "3",
+      "asunto": "Correo corporativo no sincroniza",
+      "descripcion": "Área solicitante: Recursos Humanos. Correo corporativo no sincroniza. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-02"
+    },
+    {
+      "id": "4",
+      "asunto": "Impresora de recepción sin conexión",
+      "descripcion": "Área solicitante: Operaciones. Impresora de recepción sin conexión. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-04"
+    },
+    {
+      "id": "5",
+      "asunto": "Solicitud de cuenta para nuevo ingreso",
+      "descripcion": "Área solicitante: Bodega. Solicitud de cuenta para nuevo ingreso. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-04"
+    },
+    {
+      "id": "6",
+      "asunto": "VPN se desconecta durante reuniones",
+      "descripcion": "Área solicitante: Administración. VPN se desconecta durante reuniones. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-04"
+    },
+    {
+      "id": "7",
+      "asunto": "Error al exportar informe de ventas",
+      "descripcion": "Área solicitante: Soporte. Error al exportar informe de ventas. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-06"
+    },
+    {
+      "id": "8",
+      "asunto": "Recuperación de contraseña del portal",
+      "descripcion": "Área solicitante: Recepción. Recuperación de contraseña del portal. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-06"
+    },
+    {
+      "id": "9",
+      "asunto": "Instalación de herramientas de desarrollo",
+      "descripcion": "Área solicitante: Finanzas. Instalación de herramientas de desarrollo. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-06"
+    },
+    {
+      "id": "10",
+      "asunto": "Equipo de contabilidad funciona lento",
+      "descripcion": "Área solicitante: Ventas. Equipo de contabilidad funciona lento. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-08"
+    },
+    {
+      "id": "11",
+      "asunto": "Actualización de firma de correo",
+      "descripcion": "Área solicitante: Recursos Humanos. Actualización de firma de correo. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-12"
+    },
+    {
+      "id": "12",
+      "asunto": "Acceso a tablero de indicadores",
+      "descripcion": "Área solicitante: Operaciones. Acceso a tablero de indicadores. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-15"
+    },
+    {
+      "id": "13",
+      "asunto": "Respaldo automático con advertencias",
+      "descripcion": "Área solicitante: Bodega. Respaldo automático con advertencias. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-16"
+    },
+    {
+      "id": "14",
+      "asunto": "Micrófono no funciona en videollamadas",
+      "descripcion": "Área solicitante: Administración. Micrófono no funciona en videollamadas. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-17"
+    },
+    {
+      "id": "15",
+      "asunto": "Permisos para biblioteca de documentos",
+      "descripcion": "Área solicitante: Soporte. Permisos para biblioteca de documentos. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-18"
+    },
+    {
+      "id": "16",
+      "asunto": "Error al registrar una nueva venta",
+      "descripcion": "Área solicitante: Recepción. Error al registrar una nueva venta. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-20"
+    },
+    {
+      "id": "17",
+      "asunto": "Configuración de doble monitor",
+      "descripcion": "Área solicitante: Finanzas. Configuración de doble monitor. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-21"
+    },
+    {
+      "id": "18",
+      "asunto": "Conexión WiFi inestable en sala norte",
+      "descripcion": "Área solicitante: Ventas. Conexión WiFi inestable en sala norte. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-09-22"
+    },
+    {
+      "id": "19",
+      "asunto": "Solicitud de licencia de diseño",
+      "descripcion": "Área solicitante: Recursos Humanos. Solicitud de licencia de diseño. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-23"
+    },
+    {
+      "id": "20",
+      "asunto": "Restauración de archivo eliminado",
+      "descripcion": "Área solicitante: Operaciones. Restauración de archivo eliminado. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Abierto",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-24"
+    },
+    {
+      "id": "21",
+      "asunto": "Cambio de equipo para analista",
+      "descripcion": "Área solicitante: Bodega. Cambio de equipo para analista. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-25"
+    },
+    {
+      "id": "22",
+      "asunto": "Portal interno muestra pantalla en blanco",
+      "descripcion": "Área solicitante: Administración. Portal interno muestra pantalla en blanco. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-26"
+    },
+    {
+      "id": "23",
+      "asunto": "Configuración de correo en celular",
+      "descripcion": "Área solicitante: Soporte. Configuración de correo en celular. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-28"
+    },
+    {
+      "id": "24",
+      "asunto": "Teclado inalámbrico pierde conexión",
+      "descripcion": "Área solicitante: Recepción. Teclado inalámbrico pierde conexión. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-09-29"
+    },
+    {
+      "id": "25",
+      "asunto": "Certificado del sitio de pruebas vencido",
+      "descripcion": "Área solicitante: Finanzas. Certificado del sitio de pruebas vencido. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-09-30"
+    },
+    {
+      "id": "26",
+      "asunto": "Reporte de inventario con datos duplicados",
+      "descripcion": "Área solicitante: Ventas. Reporte de inventario con datos duplicados. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
       "estado": "En proceso",
       "prioridad": "Baja",
-      "fechaCreacion": "2026-10-05",
-      "id": "9"
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "27",
+      "asunto": "Habilitar acceso remoto a soporte",
+      "descripcion": "Área solicitante: Recursos Humanos. Habilitar acceso remoto a soporte. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Cerrado",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "28",
+      "asunto": "Disco de estación de trabajo sin espacio",
+      "descripcion": "Área solicitante: Operaciones. Disco de estación de trabajo sin espacio. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-01"
+    },
+    {
+      "id": "29",
+      "asunto": "Calendario compartido no se actualiza",
+      "descripcion": "Área solicitante: Bodega. Calendario compartido no se actualiza. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-02"
+    },
+    {
+      "id": "30",
+      "asunto": "Configuración de impresora de bodega",
+      "descripcion": "Área solicitante: Administración. Configuración de impresora de bodega. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-03"
+    },
+    {
+      "id": "31",
+      "asunto": "Error al adjuntar documentos al CRM",
+      "descripcion": "Área solicitante: Soporte. Error al adjuntar documentos al CRM. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-04"
+    },
+    {
+      "id": "32",
+      "asunto": "Solicitud de acceso a repositorio",
+      "descripcion": "Área solicitante: Recepción. Solicitud de acceso a repositorio. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-04"
+    },
+    {
+      "id": "33",
+      "asunto": "Cámara web no detectada",
+      "descripcion": "Área solicitante: Finanzas. Cámara web no detectada. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-05"
+    },
+    {
+      "id": "34",
+      "asunto": "Aplicación de asistencia no inicia",
+      "descripcion": "Área solicitante: Ventas. Aplicación de asistencia no inicia. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Abierto",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-05"
+    },
+    {
+      "id": "35",
+      "asunto": "Revisión de alertas del servidor",
+      "descripcion": "Área solicitante: Recursos Humanos. Revisión de alertas del servidor. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-06"
+    },
+    {
+      "id": "36",
+      "asunto": "Cambio de nombre en cuenta corporativa",
+      "descripcion": "Área solicitante: Operaciones. Cambio de nombre en cuenta corporativa. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-06"
+    },
+    {
+      "id": "37",
+      "asunto": "Problema al descargar comprobantes",
+      "descripcion": "Área solicitante: Bodega. Problema al descargar comprobantes. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-07"
+    },
+    {
+      "id": "38",
+      "asunto": "Instalación de lector de PDF",
+      "descripcion": "Área solicitante: Administración. Instalación de lector de PDF. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-07"
+    },
+    {
+      "id": "39",
+      "asunto": "Conexión de red intermitente en bodega",
+      "descripcion": "Área solicitante: Soporte. Conexión de red intermitente en bodega. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-08"
+    },
+    {
+      "id": "40",
+      "asunto": "Migración de documentos de proyecto",
+      "descripcion": "Área solicitante: Recepción. Migración de documentos de proyecto. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-12"
+    },
+    {
+      "id": "41",
+      "asunto": "Notificaciones del sistema no llegan",
+      "descripcion": "Área solicitante: Finanzas. Notificaciones del sistema no llegan. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-13"
+    },
+    {
+      "id": "42",
+      "asunto": "Configuración de equipo de reemplazo",
+      "descripcion": "Área solicitante: Ventas. Configuración de equipo de reemplazo. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-14"
+    },
+    {
+      "id": "43",
+      "asunto": "Error de permisos en ambiente de pruebas",
+      "descripcion": "Área solicitante: Recursos Humanos. Error de permisos en ambiente de pruebas. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-14"
+    },
+    {
+      "id": "44",
+      "asunto": "Solicitud de capacitación del portal",
+      "descripcion": "Área solicitante: Operaciones. Solicitud de capacitación del portal. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Abierto",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-16"
+    },
+    {
+      "id": "45",
+      "asunto": "Sincronización de contactos corporativos",
+      "descripcion": "Área solicitante: Bodega. Sincronización de contactos corporativos. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-17"
+    },
+    {
+      "id": "46",
+      "asunto": "Problema con resolución de pantalla",
+      "descripcion": "Área solicitante: Administración. Problema con resolución de pantalla. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-17"
+    },
+    {
+      "id": "47",
+      "asunto": "Formulario de clientes no guarda cambios",
+      "descripcion": "Área solicitante: Soporte. Formulario de clientes no guarda cambios. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "En proceso",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-24"
+    },
+    {
+      "id": "48",
+      "asunto": "Habilitar usuario del turno nocturno",
+      "descripcion": "Área solicitante: Recepción. Habilitar usuario del turno nocturno. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "En proceso",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-24"
+    },
+    {
+      "id": "49",
+      "asunto": "Configuración de acceso a base de datos",
+      "descripcion": "Área solicitante: Finanzas. Configuración de acceso a base de datos. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "Cerrado",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-26"
+    },
+    {
+      "id": "50",
+      "asunto": "Actualización de navegador corporativo",
+      "descripcion": "Área solicitante: Ventas. Actualización de navegador corporativo. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Cerrado",
+      "prioridad": "Alta",
+      "fechaCreacion": "2026-10-26"
+    },
+    {
+      "id": "51",
+      "asunto": "Revisión de lentitud del sistema de ventas",
+      "descripcion": "Área solicitante: Recursos Humanos. Revisión de lentitud del sistema de ventas. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-27"
+    },
+    {
+      "id": "52",
+      "asunto": "Recuperación de carpeta de proyectos",
+      "descripcion": "Área solicitante: Operaciones. Recuperación de carpeta de proyectos. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-27"
+    },
+    {
+      "id": "53",
+      "asunto": "Instalación de aplicación de inventario",
+      "descripcion": "Área solicitante: Bodega. Instalación de aplicación de inventario. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-28"
+    },
+    {
+      "id": "54",
+      "asunto": "Error en cálculo del informe mensual",
+      "descripcion": "Área solicitante: Administración. Error en cálculo del informe mensual. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "Abierto",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-29"
+    },
+    {
+      "id": "55",
+      "asunto": "Cambio de contraseña de red inalámbrica",
+      "descripcion": "Área solicitante: Soporte. Cambio de contraseña de red inalámbrica. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-30"
+    },
+    {
+      "id": "56",
+      "asunto": "Solicitud de periféricos para recepción",
+      "descripcion": "Área solicitante: Recepción. Solicitud de periféricos para recepción. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "Cerrado",
+      "prioridad": "Baja",
+      "fechaCreacion": "2026-10-31"
+    },
+    {
+      "id": "57",
+      "asunto": "Validación de respaldo de contabilidad",
+      "descripcion": "Área solicitante: Finanzas. Validación de respaldo de contabilidad. Se requiere revisar la configuración y validar el funcionamiento con el equipo solicitante.",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-10-31"
+    },
+    {
+      "id": "58",
+      "asunto": "Integración de calendario con videollamadas",
+      "descripcion": "Área solicitante: Ventas. Integración de calendario con videollamadas. La situación afecta las tareas habituales del área. Se solicita diagnóstico y seguimiento.",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-11-01"
+    },
+    {
+      "id": "59",
+      "asunto": "Problema al imprimir etiquetas",
+      "descripcion": "Área solicitante: Recursos Humanos. Problema al imprimir etiquetas. Se solicita gestionar el requerimiento y confirmar el resultado con la persona usuaria.",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-11-01"
+    },
+    {
+      "id": "60",
+      "asunto": "Revisión de acceso al portal de proveedores",
+      "descripcion": "Área solicitante: Operaciones. Revisión de acceso al portal de proveedores. El equipo del área reporta esta necesidad durante su jornada. Se requiere revisión técnica.",
+      "estado": "En proceso",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-11-02"
     }
   ],
   "usuarios": [

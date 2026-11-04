@@ -1,0 +1,27 @@
+<article class="tarjeta"
+    [class.principal]="variante() === 'principal'"
+    [class.azul]="variante() === 'azul'"
+    [class.ambar]="variante() === 'ambar'"
+    [class.verde]="variante() === 'verde'"
+    [class.roja]="variante() === 'roja'"
+    >
+
+    <header class="tarjeta-encabezado">
+        <h3>{{ titulo() }}</h3>
+        <span class="tarjeta-icono" aria-hidden="true"><mat-icon>{{ icono() }}</mat-icon></span>
+    </header>
+
+    <div class="tarjeta-cifra">
+        <strong>{{ valor() }}</strong>
+        @if (unidad()) {
+            <span class="tarjeta-unidad">{{ unidad() }}</span>
+        }
+    </div>
+
+    <p class="tarjeta-descripcion">{{ descripcion() }}</p>
+
+    @if (apoyo()) {
+        <footer class="tarjeta-apoyo">{{ apoyo() }}</footer>
+    }
+
+</article>

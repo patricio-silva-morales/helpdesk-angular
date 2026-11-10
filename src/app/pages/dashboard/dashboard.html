@@ -182,6 +182,29 @@
 
     </section>
 
+    @if (resumen().total > 0) {
+      <section aria-labelledby="titulo-visualizaciones">
+        <div class="titulo-seccion">
+          <h2 id="titulo-visualizaciones">Visualización estadística</h2>
+          <span>{{ alcance() }} - {{ resumen().total }} tickets</span>
+        </div>
+
+        <div class="graficos">
+          <app-grafico-tickets
+            titulo="Tickets por estado"
+            tipo="bar"
+            [series]="serieEstados()">
+          </app-grafico-tickets>
+
+          <app-grafico-tickets
+            titulo="Pendientes y cerrados"
+            tipo="doughnut"
+            [series]="serieCierre()">
+          </app-grafico-tickets>
+        </div>
+      </section>
+    }
+
     <footer class="nota">
       Los indicadores consideran los tickets de la prioridad seleccionada,
       sin filtro de período. Los datos se consultan al entrar a esta vista

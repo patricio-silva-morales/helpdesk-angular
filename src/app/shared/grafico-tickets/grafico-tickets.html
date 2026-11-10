@@ -1,0 +1,76 @@
+<article class="panel">
+  <h3>{{ titulo() }}</h3>
+
+  <svg class="lienzo" viewBox="0 0 240 180" aria-hidden="true">
+    @if (tipo() === 'bar') {
+      <line x1="16" y1="156" x2="224" y2="156" stroke="#cbd5e1" />
+
+      @for (serie of series(); track serie.etiqueta; let indice = $index) {
+        @let alto = (serie.cantidad / maximo()) * 116;
+        @let centro = 16 + ((indice + 0.5) * 208) / series().length;
+
+        <rect
+          [attr.x]="centro - 19"
+          [attr.y]="156 - alto"
+          width="38"
+          [attr.height]="alto"
+          rx="4"
+          [attr.fill]="serie.color"
+          [class.atenuado]="activa() && activa() !== serie.etiqueta"
+          (pointerenter)="activa.set(serie.etiqueta)"
+          (pointerleave)="activa.set(null)" />
+
+        <text [attr.x]="centro" [attr.y]="148 - alto" text-anchor="middle">
+          {{ serie.cantidad }}
+        </text>
+      }
+    } @else {
+      @for (segmento of segmentos(); track segmento.etiqueta) {
+        @if (segmento.longitud > 0) {
+          <circle
+            cx="120"
+            cy="90"
+            r="62"
+            pathLength="100"
+            fill="none"
+            stroke-width="24"
+            transform="rotate(-90 120 90)"
+            [attr.stroke]="segmento.color"
+            [attr.stroke-dasharray]="segmento.longitud + ' ' + (100 - segmento.longitud)"
+            [attr.stroke-dashoffset]="-segmento.inicio"
+            [class.atenuado]="activa() && activa() !== segmento.etiqueta"
+            (pointerenter)="activa.set(segmento.etiqueta)"
+            (pointerleave)="activa.set(null)" />
+        }
+      }
+
+      <text x="120" y="95" text-anchor="middle" class="total">
+        {{ total() }}
+      </text>
+    }
+  </svg>
+
+  <p class="detalle" aria-live="polite">
+    @if (detalle(); as serie) {
+      {{ serie.etiqueta }} · {{ serie.cantidad }} tickets · {{ porcentaje(serie.cantidad) }}
+    } @else {
+      Explora una categoría para ver su proporción.
+    }
+  </p>
+
+  <ul>
+    @for (serie of series(); track serie.etiqueta) {
+      <li>
+        <button
+          type="button"
+          (focus)="activa.set(serie.etiqueta)"
+          (blur)="activa.set(null)"
+          (click)="activa.set(serie.etiqueta)">
+          <span class="muestra" [style.background]="serie.color" aria-hidden="true"></span>
+          <span>{{ serie.etiqueta }}</span>
+          <strong>{{ serie.cantidad }}</strong>
+        </button>
+      </li>
+    }
+  </ul>
+</article>

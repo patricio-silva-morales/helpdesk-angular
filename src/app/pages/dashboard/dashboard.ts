@@ -15,6 +15,8 @@ import { Ticket } from '../../models/ticket';
 import { TicketService } from '../../services/ticket';
 import { TarjetaIndicador } from '../../shared/tarjeta-indicador/tarjeta-indicador';
 
+import { GraficoTickets, type SerieTickets } from '../../shared/grafico-tickets/grafico-tickets'; 
+
 type FiltroPrioridad = Ticket['prioridad'] | 'Todas';
 
 interface ResumenTickets {
@@ -32,7 +34,8 @@ interface ResumenTickets {
     DecimalPipe,
     FormsModule,
     MatButtonModule,
-    TarjetaIndicador
+    TarjetaIndicador,
+    GraficoTickets
   ],
 
   templateUrl: './dashboard.html',
@@ -114,6 +117,32 @@ export class Dashboard implements OnInit {
 
     return resumen.abiertos + resumen.enProceso;
   });
+
+  readonly serieEstados = computed<SerieTickets[]>(() => {
+    const resumen = this.resumen();
+
+    return [
+      { etiqueta: 'Abiertos',
+        cantidad: resumen.abiertos, color: '#2563eb' 
+      },
+      { etiqueta: 'En proceso',
+        cantidad: resumen.enProceso, color: '#b45309' 
+      },
+      { etiqueta: 'Cerrados',
+        cantidad: resumen.cerrados, color: '#15803d' 
+      }
+    ];
+  });
+
+  readonly serieCierre = computed<SerieTickets[]>(() => [
+      { etiqueta: 'Pendientes',
+        cantidad: this.pendientes(), color: '#2563eb' 
+      },
+      { etiqueta: 'Cerrados',
+        cantidad: this.resumen().cerrados, color: '#b45309' 
+      }
+    ]
+  );
 
   readonly porcentajeCerrados = computed(() => {
     const resumen = this.resumen();

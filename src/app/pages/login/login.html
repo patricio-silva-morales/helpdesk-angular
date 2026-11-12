@@ -1,0 +1,10 @@
+<section class="acceso" aria-labelledby="titulo-acceso">
+    <h1 id="titulo-acceso">Acceso a Help Desk</h1>
+    <p>Elige un perfil de demostración para comenzar</p>
+
+    <div class="perfiles">
+        @for (rol of roles; track rol) {
+            <button type="button" (click)="entrar(rol)">Entrar como {{ rol }}</button>
+        }
+    </div>
+</section>

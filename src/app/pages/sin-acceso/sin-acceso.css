@@ -1,0 +1,13 @@
+section {
+    max-width: 36rem;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 1px solid #dbe3ee;
+    border-radius: 1rem;
+    background: #ffffff;
+}
+
+a {
+    color: #1d4ed8;
+    text-decoration: underline;
+}

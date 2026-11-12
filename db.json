@@ -479,6 +479,14 @@
       "estado": "En proceso",
       "prioridad": "Media",
       "fechaCreacion": "2026-11-02"
+    },
+    {
+      "asunto": "Algo Más",
+      "descripcion": "Algo Más de texto",
+      "estado": "Abierto",
+      "prioridad": "Media",
+      "fechaCreacion": "2026-11-12",
+      "id": "pRp4vFvnBQo"
     }
   ],
   "usuarios": [

@@ -7,13 +7,24 @@
       <span class="marca-subtitulo">Gestión de soporte</span>
     </div>
   </div>
+
+  @if (sesion.actual(); as perfil) {
+    <button
+      mat-button
+      type="button"
+      style="margin-left: auto"
+      (click)="cerrarSesion()"
+    >
+      Cerrar sesión - {{ perfil.rol }}
+    </button>
+  }
 </mat-toolbar>
 
 <mat-sidenav-container class="layout">
 
   <mat-sidenav
     mode="side"
-    opened
+    opened="sesion.actual() !== null"
     class="sidebar">
 
     <div class="menu-titulo">
@@ -50,33 +61,21 @@
         </span>
       </a>
 
-      <a
-        mat-list-item
-        routerLink="/kanban"
-        routerLinkActive="activo">
+      @if (sesion.tieneAlgunRol(['Soporte', 'Administrador'])) {
+        <a
+          mat-list-item
+          routerLink="/kanban"
+          routerLinkActive="activo">
 
-        <mat-icon matListItemIcon>
-          view_kanban
-        </mat-icon>
+          <mat-icon matListItemIcon>
+            view_kanban
+          </mat-icon>
 
-        <span matListItemTitle>
-          Kanban
-        </span>
-      </a>
-
-      <a
-        mat-list-item
-        routerLink="/reportes"
-        routerLinkActive="activo">
-
-        <mat-icon matListItemIcon>
-          bar_chart
-        </mat-icon>
-
-        <span matListItemTitle>
-          Reportes
-        </span>
-      </a>
+          <span matListItemTitle>
+            Kanban
+          </span>
+        </a>      
+      }
 
     </mat-nav-list>
 

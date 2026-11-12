@@ -6,6 +6,10 @@ import { TicketDetalle } from './pages/ticket-detalle/ticket-detalle';
 import { Kanban } from './pages/kanban/kanban';
 import { Reportes } from './pages/reportes/reportes';
 
+import { Login } from './pages/login/login';
+import { requiereRoles, sesionGuard } from './guards/acceso-guard';
+import { SinAcceso } from './pages/sin-acceso/sin-acceso';
+
 export const routes: Routes = [
   {
     path: '',
@@ -13,35 +17,51 @@ export const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'login',
+    component: Login
+  },
+  {
+    path: 'sin-acceso',
+    canActivate: [sesionGuard],
+    component: SinAcceso
+  },
+  {
     path: 'dashboard',
-    component: Dashboard
+    component: Dashboard,
+    canActivate: [sesionGuard]
   },
   {
     path: 'tickets',
-    component: Tickets
+    component: Tickets,
+    canActivate: [sesionGuard]
   },
   {
     path: 'tickets/nuevo',
-    component: TicketForm
+    component: TicketForm,
+    canActivate: [sesionGuard]
   },
   {
     path: 'tickets/editar/:id',
-    component: TicketForm
+    component: TicketForm,
+    canActivate: [sesionGuard]
   },
   {
     path: 'tickets/:id',
-    component: TicketDetalle
+    component: TicketDetalle,
+    canActivate: [sesionGuard]
   },
   {
     path: 'kanban',
-    component: Kanban
+    component: Kanban,
+    canActivate: [requiereRoles('Soporte', 'Administrador')]
   },
   {
     path: 'reportes',
-    component: Reportes
+    component: Reportes,
+    canActivate: [requiereRoles('Administrador')]
   },
   {
     path: '**',
-    component: Dashboard
+    redirectTo: 'dashboard'
   }
 ];

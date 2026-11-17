@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { Sesion, type Rol } from '../services/sesion'; 
+import { Sesion, type Rol } from '../../services/sesion'; 
 
 export const sesionGuard: CanActivateFn = (route, state) => {
   const sesion = inject(Sesion);

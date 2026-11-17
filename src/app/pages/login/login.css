@@ -1,29 +1,52 @@
+/* MODIFICADO: estilos del formulario de acceso. */
 .acceso {
-    max-width: 32rem;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    border: 1px solid #dbe3ee;
-    border-radius: 1rem;
-    background: #ffffff;
+  max-width: 28rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 1px solid #dbe3ee;
+  border-radius: 1rem;
+  background: #fff;
+  color: #0f172a;
 }
 
-.perfiles {
-    display: grid;
-    gap: 0.75rem;
-    margin-top: 1.25rem;
+form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+button {
+  min-width: 0;
+  padding: 0.75rem;
+  border: 1px solid #94a3b8;
+  border-radius: 0.5rem;
+  font: inherit;
 }
 
 button {
-    padding: 0.75rem 1rem;
-    border: 1px solid #1d4ed8;
-    border-radius: 0.5rem;
-    background: #1d4ed8;
-    color: #ffffff;
-    font: inherit;
-    cursor: pointer;
+  margin-top: 0.5rem;
+  border-color: #1d4ed8;
+  background: #1d4ed8;
+  color: #fff;
+  cursor: pointer;
 }
 
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+input:focus-visible,
 button:focus-visible {
-    outline: 2px solid #1d4ed8;
-    outline-offset: 3px;
+  outline: 2px solid #1d4ed8;
+  outline-offset: 2px;
+}
+
+.error {
+  margin: 0;
+  color: #b91c1c;
 }

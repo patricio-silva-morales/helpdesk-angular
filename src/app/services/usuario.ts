@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Usuario } from '../models/usuario';
+import { Injectable, inject } from '@angular/core';
+import type { Observable } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root'
-})
+import { API_BASE_URL } from '../config/api';
+import type { Usuario } from '../models/usuario';
+
+@Injectable({ providedIn: 'root' })
 export class UsuarioService {
+  private readonly http = inject(HttpClient);
 
-    private apiUrl = 'http://localhost:3000/usuario';
+  // MODIFICADO: consulta la colección de usuarios de Django.
+  private readonly apiUrl = `${API_BASE_URL}/usuarios`;
 
-    constructor(private http:HttpClient) {}
-
-    obtenerUsuarios():Observable<Usuario[]> {
-        return this.http.get<Usuario[]>(this.apiUrl);
-    }
+  obtenerUsuarios(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.apiUrl);
+  }
 }

@@ -96,7 +96,9 @@
    CONTADOR DE RESULTADOS
    ============================== */
 
+/* AGREGADO: reserva espacio para el estado de carga. */
 .contador-resultados {
+  min-height: 1.5em;
   margin: 8px 2px 16px;
   color: #64748b;
   font-size: 13px;
@@ -286,6 +288,7 @@ mat-paginator {
 }
 
 .mensaje.error {
+  margin-bottom: 12px;
   background: #fef2f2;
   border-color: #fecaca;
   color: #b91c1c;

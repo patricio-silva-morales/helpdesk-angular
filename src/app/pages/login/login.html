@@ -1,10 +1,36 @@
+<!-- MODIFICADO: reemplaza el selector de perfiles por credenciales. -->
 <section class="acceso" aria-labelledby="titulo-acceso">
-    <h1 id="titulo-acceso">Acceso a Help Desk</h1>
-    <p>Elige un perfil de demostración para comenzar</p>
+  <h1 id="titulo-acceso">Acceso al Help Desk</h1>
 
-    <div class="perfiles">
-        @for (rol of roles; track rol) {
-            <button type="button" (click)="entrar(rol)">Entrar como {{ rol }}</button>
-        }
-    </div>
+  <form #formulario="ngForm" (ngSubmit)="entrar()">
+    <label for="username">Usuario</label>
+    <input
+      id="username"
+      name="username"
+      autocomplete="username"
+      [(ngModel)]="username"
+      required
+    />
+
+    <label for="password">Contraseña</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      autocomplete="current-password"
+      [(ngModel)]="password"
+      required
+    />
+
+    @if (mensajeError()) {
+      <p class="error" role="alert">{{ mensajeError() }}</p>
+    }
+
+    <button
+      type="submit"
+      [disabled]="formulario.invalid || enviando()"
+    >
+      {{ enviando() ? 'Ingresando…' : 'Iniciar sesión' }}
+    </button>
+  </form>
 </section>

@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Subject, catchError, of, switchMap, timer } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIcon } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -31,11 +32,10 @@ import { ConfirmDialog } from '../../shared/confirm-dialog/confirm-dialog';
     DatePipe,
     RouterLink,
     MatIconModule,
-    MatIcon,
     EstadoTicket,
     PrioridadTicket,
     AccionesTicket
-],
+  ],
   templateUrl: './tickets.html',
   styleUrl: './tickets.css'
 })
@@ -53,7 +53,16 @@ export class Tickets implements OnInit {
     'acciones'
   ];
 
-  dataSource = new MatTableDataSource<Ticket>();
+  // MODIFICADO: conserva la última página confirmada.
+  readonly filas = signal<Ticket[]>([]);
+  readonly total = signal(0);
+  readonly paginaVisible = signal(0);
+  readonly tamanoVisible = signal(20);
+  readonly paginaCargada = signal(false);
+
+  indiceSolicitado = 0;
+  tamanoSolicitado = 20;
+  private readonly recargas = new Subject<number>();
 
   cargando = signal(true);
   error = signal(false);
@@ -68,66 +77,55 @@ export class Tickets implements OnInit {
   };
 
   constructor() {
-    this.dataSource.filterPredicate = (
-      ticket: Ticket,
-      filtroJson: string
-    ): boolean => {
-      const criterios = JSON.parse(filtroJson) as typeof this.filtros;
-      const texto = criterios.texto.trim().toLocaleLowerCase();
-      
-      const coincideTexto = texto === '' || [
-        ticket.id,
-        ticket.asunto,
-        ticket.descripcion,
-        ticket.estado,
-        ticket.prioridad
-      ].some(valor => String(valor).toLocaleLowerCase().includes(texto));
-      
-      const coincideEstado = criterios.estado === '' || ticket.estado === criterios.estado;
-      
-      const coincidePrioridad = criterios.prioridad === '' || ticket.prioridad === criterios.prioridad;
+    this.recargas.pipe(
+      switchMap(demora =>
+        (demora > 0 ? timer(demora) : of(0)).pipe(
+          switchMap(() => this.ticketService.obtenerTicketsPaginados(
+            this.indiceSolicitado + 1,
+            this.tamanoSolicitado,
+            this.filtros
+          )),
+          catchError(error => {
+            console.error('Error al cargar tickets:', error);
+            return of(null);
+          })
+        )
+      ),
+      takeUntilDestroyed()
+    ).subscribe(pagina => {
+      if (pagina) {
+        this.filas.set(pagina.results);
+        this.total.set(pagina.count);
+        this.paginaVisible.set(this.indiceSolicitado);
+        this.tamanoVisible.set(this.tamanoSolicitado);
+        this.paginaCargada.set(true);
+      } else {
+        this.error.set(true);
+      }
 
-      const fechaTicket = ticket.fechaCreacion.slice(0, 10);
-      const coincideFechaDesde = criterios.fechaDesde === '' || fechaTicket >= criterios.fechaDesde;
-      const coincideFechaHasta = criterios.fechaHasta === '' || fechaTicket <= criterios.fechaHasta;
-
-      return coincideTexto && coincideEstado && coincidePrioridad && coincideFechaDesde && coincideFechaHasta;
-    };
-  }  
-
-  @ViewChild(MatPaginator)
-  set paginator(paginator: MatPaginator) {
-    if (paginator) {
-      this.dataSource.paginator = paginator;
-    }
+      this.cargando.set(false);
+    });
   }
 
   ngOnInit(): void {
-    this.dataSource.filter = JSON.stringify(this.filtros);
     this.cargarTickets();
   }
 
-  cargarTickets(): void {
+  cargarTickets(demora = 0): void {
     this.cargando.set(true);
     this.error.set(false);
+    this.recargas.next(demora);
+  }
 
-    this.ticketService.obtenerTickets().subscribe({
-      next: (tickets) => {
-        this.dataSource.data = tickets;
-        this.cargando.set(false);
-      },
-
-      error: (error) => {
-        console.error('Error al cargar tickets:', error);
-        this.error.set(true);
-        this.cargando.set(false);
-      }
-    });
+  cambiarPagina(evento: PageEvent): void {
+    this.indiceSolicitado = evento.pageIndex;
+    this.tamanoSolicitado = evento.pageSize;
+    this.cargarTickets();
   }
 
   aplicarBusqueda(valor: string): void {
     this.filtros.texto = valor;
-    this.aplicarFiltros();
+    this.aplicarFiltros(300);
   }
 
   aplicarFiltroEstado(valor: string): void {
@@ -143,7 +141,7 @@ export class Tickets implements OnInit {
   aplicarFechaDesde(valor: string): void {
     this.filtros.fechaDesde = valor;
 
-    if (this.filtros.fechaDesde !== '' && this.filtros.fechaDesde > this.filtros.fechaHasta) {
+    if (valor && this.filtros.fechaHasta && valor > this.filtros.fechaHasta) {
       this.filtros.fechaHasta = this.filtros.fechaDesde;
     }
 
@@ -153,16 +151,16 @@ export class Tickets implements OnInit {
   aplicarFechaHasta(valor: string): void {
     this.filtros.fechaHasta = valor;
 
-    if (this.filtros.fechaHasta !== '' && this.filtros.fechaHasta < this.filtros.fechaDesde) {
+    if (valor && this.filtros.fechaDesde && valor < this.filtros.fechaDesde) {
       this.filtros.fechaDesde = this.filtros.fechaHasta;
     }
 
     this.aplicarFiltros();
   }
 
-  aplicarFiltros(): void {
-    this.dataSource.filter = JSON.stringify(this.filtros);
-    this.dataSource.paginator?.firstPage();
+  private aplicarFiltros(demora = 0): void {
+    this.indiceSolicitado = 0;
+    this.cargarTickets(demora);
   }
 
   limpiarFiltros(): void {
@@ -177,10 +175,6 @@ export class Tickets implements OnInit {
     this.aplicarFiltros();
   }
 
-  get sinResultados(): boolean {
-    return this.dataSource.filteredData.length === 0;
-  }
-
   eliminar(ticket: Ticket): void {
     const dialogRef = this.dialog.open(ConfirmDialog, {
       width: '430px',
@@ -190,7 +184,7 @@ export class Tickets implements OnInit {
         titulo: 'Eliminar ticket',
         mensaje: '¿Está seguro que desea eliminar el ticket?',
         textoConfirmar: 'Eliminar',
-        textoCancelar: 'Cancelar' 
+        textoCancelar: 'Cancelar'
       }
     });
 
@@ -201,7 +195,7 @@ export class Tickets implements OnInit {
         }
 
         this.eliminarTicket(ticket);
-    });        
+    });
   }
 
   private eliminarTicket(ticket: Ticket): void {
@@ -210,7 +204,7 @@ export class Tickets implements OnInit {
     this.ticketService.eliminarTicket(ticket.id).subscribe({
       next: () => {
         this.eliminandoId.set(null);
-        this.cargarTickets();
+        this.aplicarFiltros();
       },
       error: (error) => {
         console.error('Error al intentar eliminar el ticket:', error);

@@ -7,7 +7,7 @@ import { Kanban } from './pages/kanban/kanban';
 import { Reportes } from './pages/reportes/reportes';
 
 import { Login } from './pages/login/login';
-import { requiereRoles, sesionGuard } from './guards/acceso-guard';
+import { requiereRoles, sesionGuard } from './interceptor/guards/acceso-guard';
 import { SinAcceso } from './pages/sin-acceso/sin-acceso';
 
 export const routes: Routes = [

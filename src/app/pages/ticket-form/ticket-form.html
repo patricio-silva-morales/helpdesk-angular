@@ -128,7 +128,7 @@
 
       @if (errorGuardado()) {
 
-        <div class="error-guardado">
+        <div class="error-guardado" role="alert">
 
           <mat-icon>error_outline</mat-icon>
 
@@ -149,6 +149,7 @@
         <button
           mat-stroked-button
           type="button"
+          [disabled]="guardando()"
           (click)="cancelar()">
 
           Cancelar

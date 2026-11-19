@@ -1,14 +1,5 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './pages/dashboard/dashboard';
-import { Tickets } from './pages/tickets/tickets';
-import { TicketForm } from './pages/ticket-form/ticket-form';
-import { TicketDetalle } from './pages/ticket-detalle/ticket-detalle';
-import { Kanban } from './pages/kanban/kanban';
-import { Reportes } from './pages/reportes/reportes';
-
-import { Login } from './pages/login/login';
 import { requiereRoles, sesionGuard } from './interceptor/guards/acceso-guard';
-import { SinAcceso } from './pages/sin-acceso/sin-acceso';
 
 export const routes: Routes = [
   {
@@ -18,47 +9,47 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: Login
+    loadComponent: () => import('./pages/login/login').then(m => m.Login)
   },
   {
     path: 'sin-acceso',
     canActivate: [sesionGuard],
-    component: SinAcceso
+    loadComponent: () => import('./pages/sin-acceso/sin-acceso').then(m => m.SinAcceso)
   },
   {
     path: 'dashboard',
-    component: Dashboard,
-    canActivate: [sesionGuard]
+    canActivate: [sesionGuard],
+    loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard)    
   },
   {
     path: 'tickets',
-    component: Tickets,
-    canActivate: [sesionGuard]
+    canActivate: [sesionGuard],
+    loadComponent: () => import('./pages/tickets/tickets').then(m => m.Tickets)    
   },
   {
     path: 'tickets/nuevo',
-    component: TicketForm,
-    canActivate: [sesionGuard]
+    canActivate: [sesionGuard],
+    loadComponent: () => import('./pages/ticket-form/ticket-form').then(m => m.TicketForm)
   },
   {
     path: 'tickets/editar/:id',
-    component: TicketForm,
-    canActivate: [sesionGuard]
+    canActivate: [sesionGuard],
+    loadComponent: () => import('./pages/ticket-form/ticket-form').then(m => m.TicketForm)
   },
   {
     path: 'tickets/:id',
-    component: TicketDetalle,
-    canActivate: [sesionGuard]
+    canActivate: [sesionGuard],
+    loadComponent: () => import('./pages/ticket-detalle/ticket-detalle').then(m => m.TicketDetalle)
   },
   {
     path: 'kanban',
-    component: Kanban,
-    canActivate: [requiereRoles('Soporte', 'Administrador')]
+    canActivate: [requiereRoles('Soporte', 'Administrador')],
+    loadComponent: () => import('./pages/kanban/kanban').then(m => m.Kanban)  
   },
   {
     path: 'reportes',
-    component: Reportes,
-    canActivate: [requiereRoles('Administrador')]
+    canActivate: [requiereRoles('Administrador')],
+    loadComponent: () => import('./pages/reportes/reportes').then(m => m.Reportes)    
   },
   {
     path: '**',
